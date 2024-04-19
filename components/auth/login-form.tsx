@@ -22,8 +22,15 @@ import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { login } from '@/actions/login';
 import { useState, useTransition } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export const LoginForm = () => {
+  const searchParams = useSearchParams();
+  const urlError =
+    searchParams.get('error') === 'OAuthAccountNotLinked'
+      ? 'email already in use w/ diff provider'
+      : '';
+
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
 
@@ -45,10 +52,25 @@ export const LoginForm = () => {
       setError('');
       setSuccess('');
 
-      login(values).then((data) => {
-        setError(data.error);
-        setSuccess(data.success);
-      });
+      login(values)
+        .then((data) => {
+          setError(data.error);
+          setSuccess(data.success);
+        })
+        .catch((error) => {
+          console.log('probably ur just on /settings, refresh the page pls');
+        });
+
+      // login(values)
+      //   .then((data) => {
+      //     console.log(`DATA: ${data.error || 'No error'}`);
+
+      //     setError(data.error);
+      //     setSuccess(data.success);
+      //   })
+      //   .catch((error) => {
+      //     console.log('CAUGHT: ', error);
+      //   });
     });
   };
 
@@ -104,7 +126,7 @@ export const LoginForm = () => {
           </div>
 
           {/* display response mssgs after login attempt */}
-          <FormError message={error} />
+          <FormError message={error || urlError} />
           <FormSuccess message={success} />
           <Button type="submit" className="w-full">
             login

@@ -25,6 +25,7 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   // now we check if we can find a user in the db with this email
   // so that we know that the email is unique
   const existingUser = await getUserByEmail(email)
+  console.log(existingUser)
 
   if (existingUser) {
     return { error: 'email already in use' }
