@@ -35,6 +35,22 @@ export const {
 
     callbacks: {
 
+      async signIn({ user, account }) {
+
+        // allow oauth without email verification
+        if (account?.provider !== 'credentials') return true;
+
+        // @ts-ignore
+        const existingUser = await getUserById(user.id)
+
+        // prevent sign in without email verification
+        if (!existingUser?.emailVerified) return false
+
+        // TODO: ADD 2FA CHECK
+
+        return true
+      },
+
       async session({ token, session }) {
 
         // the user id is in token.sub but we want it in session.user so we add it like this.
