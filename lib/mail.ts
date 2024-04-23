@@ -2,6 +2,18 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
+
+  await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: email,
+    subject: '2fa code',
+    html: `
+    <p>${token}</p>`
+  })
+
+}
+
 export const sendVerificationEmail = async (email: string, token: string) => {
   const confirmLink = `http://localhost:3000/auth/new-verification?token=${token}`
 
@@ -62,6 +74,70 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 </html>
 
     
+    `
+  })
+}
+
+export const sendPasswordResetEmail = async (email: string, token: string) => {
+  const confirmLink = `http://localhost:3000/auth/new-password?token=${token}`
+
+  await resend.emails.send({
+    // u can change this once u add a domain to resend so it comes from a sexier email address.
+    from: 'onboarding@resend.dev',
+    to: email,
+    subject: 'reset ur password',
+    // u have to design the whole email with html
+    html: `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Reset</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    p {
+      color: #666;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reset Your Password</h1>
+    <p>We received a request to reset your password. To reset your password, click the button below:</p>
+    <p style="text-align: center;"><a href="${confirmLink}" class="btn">Reset Password</a></p>
+    <p>If you didn't request to reset your password, you can ignore this email.</p>
+    <p>Thank you,<br> The Resend Team</p>
+  </div>
+</body>
+</html>
+
     `
   })
 }

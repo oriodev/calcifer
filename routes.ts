@@ -2,16 +2,18 @@
 // type string[]
 export const publicRoutes = [
   "/",
-  '/auth/new-verification'
+  '/auth/new-verification',
 ]
 
-// routes that need auth to access
+// routes that don't need auth to access
 // logged in users will be redirected to /settings
 // type string[]
 export const authRoutes = [
   '/auth/login',
   '/auth/register',
-  '/auth/error'
+  '/auth/error',
+  '/auth/reset',
+  '/auth/new-password'
 ]
 
 // prefix for all the auth api routes
