@@ -10,6 +10,7 @@ import bcrypt from 'bcryptjs'
 
 export default {
 
+
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
