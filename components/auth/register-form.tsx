@@ -75,7 +75,7 @@ export const RegisterForm = () => {
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="mr banana man"
+                      placeholder="doesn't have to be unique"
                       type="input"
                     />
                   </FormControl>
