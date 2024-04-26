@@ -5,14 +5,14 @@ export const publicRoutes = [
   '/auth/new-verification',
 ]
 
-// routes that don't need auth to access
+// routes that logged in users can't access
 // logged in users will be redirected to /settings
 // type string[]
 export const authRoutes = [
+  '/',
   '/auth/login',
   '/auth/register',
   '/auth/error',
-  '/auth/reset',
   '/auth/new-password'
 ]
 
@@ -20,4 +20,4 @@ export const authRoutes = [
 export const apiAuthPrefix = "/api/auth"
 
 // default redirect after logging in
-export const DEFAULT_LOGIN_REDIRECT = '/settings'
+export const DEFAULT_LOGIN_REDIRECT = '/home'
