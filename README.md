@@ -13,6 +13,8 @@ you can check it out so far [here](https://www.calcifergame.com/). _note that da
 
 ![image](https://github.com/oriodev/calcifer/assets/93719767/8ca301c3-b34c-4ad9-8006-123fdacb2104)
 
+**configuration**: light/dark theme toggle.
+
 ### features in development.
 
 **user landing page**:
