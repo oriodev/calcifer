@@ -71,6 +71,7 @@ export const LoginForm = () => {
           }
         })
         .catch((error) => {
+          console.log(error);
           setError('refresh the page, ur on /settings (or 2fa is messing up)');
           console.log('something else could be wrong now bc of 2fa');
         });

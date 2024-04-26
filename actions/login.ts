@@ -27,8 +27,20 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   // check if user exists
   const existingUser = await getUserByEmail(email)
 
+
   if (!existingUser || !existingUser.email || !existingUser.password) {
-    return { error: 'fuck off u do not exist' }
+
+    if (!existingUser) {
+      return { error: 'this user does not exist.' }
+    }
+
+    if (!existingUser.email) {
+      return { error: 'this email is not in the db.' }
+    }
+
+    if (!existingUser.password) {
+      return { error: 'ur password is incorrect.' }
+    }
   }
 
   // check if verification token exists
@@ -45,6 +57,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
     if (code) {
       const twoFactorToken = await getTwoFactorTokenByEmail(existingUser.email)
+      console.log('twoFactorToken: ', twoFactorToken)
 
       if (!twoFactorToken) {
         return { error: 'invalid code' }
