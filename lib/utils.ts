@@ -10,7 +10,6 @@ export function cn(...inputs: ClassValue[]) {
 
 
 export const socialSignIn = (provider: 'github' | 'google') => {
-  console.log(provider)
   signIn(provider, {
     callbackUrl: DEFAULT_LOGIN_REDIRECT,
   })

@@ -194,9 +194,11 @@ const SettingsPage = () => {
         </Form>
         <div className="pt-5 flex justify-between">
           <Button variant="outline">another button ig</Button>
-          <Button variant="outline">
-            <Link href="/auth/reset">reset password</Link>
-          </Button>
+          {user?.isOAuth === false && (
+            <Button variant="outline">
+              <Link href="/auth/reset">reset password</Link>
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>

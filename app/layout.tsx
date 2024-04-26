@@ -7,8 +7,8 @@ import { SessionProvider } from 'next-auth/react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'auth bby',
-  description: 'an auth toolkit',
+  title: 'calcifer',
+  description: 'a lil game',
 };
 
 export default async function RootLayout({
