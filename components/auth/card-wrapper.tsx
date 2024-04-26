@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
 import { BackButton } from './back-button';
 import { Header } from './header';
@@ -20,6 +21,14 @@ export const CardWrapper = ({
   backButtonHref,
   showSocial,
 }: CardWrapperProps) => {
+  const [displayBackButton, setDisplayBackButton] = useState(true);
+
+  useEffect(() => {
+    if (backButtonHref === '') {
+      setDisplayBackButton(false);
+    }
+  }, [backButtonHref]);
+
   return (
     <Card className="w-[400px] shadow-md">
       <CardHeader>
@@ -31,10 +40,11 @@ export const CardWrapper = ({
           <Social />
         </CardFooter>
       )}
-
-      <CardFooter>
-        <BackButton href={backButtonHref} label={backButtonLabel} />
-      </CardFooter>
+      {displayBackButton && (
+        <CardFooter>
+          <BackButton href={backButtonHref} label={backButtonLabel} />
+        </CardFooter>
+      )}
     </Card>
   );
 };

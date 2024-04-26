@@ -1,6 +1,13 @@
 import { UserRole } from '@prisma/client'
 import * as z from 'zod'
 
+import { characterStrengths, characterWeaknesses } from '@/gameinfo/charainfo';
+
+const readonlyCharacterStrengths: readonly [string, ...string[]] = [characterStrengths[0], ...characterStrengths.slice(1)];
+const readonlyCharacterWeaknesses: readonly [string, ...string[]] = [characterWeaknesses[0], ...characterWeaknesses.slice(1)];
+
+
+
 export const ResetSchema = z.object({
   email: z.string().email({
     message: 'gotta add an email'
@@ -43,24 +50,14 @@ export const SettingsSchema = z.object({
   password: z.optional(z.string()),
   newPassword: z.optional(z.string())
 })
-// .refine((data) => {
-//   if (data.password && !data.newPassword) {
 
-//     return false;
-//   }
-
-//   return true
-// }, {
-//   message: 'new password is required',
-//   path: ['newPassword']
-// })
-// .refine((data) => {
-//   if (data.newPassword && !data.password) {
-//     return false;
-//   }
-
-//   return true;
-// }, {
-//   message: 'old password is required',
-//   path: ['password']
-// })
+export const OnboardingSchema = z.object({
+  // this should be an enum
+  character: z.enum(['']),
+  // they don't have to add a background
+  background: z.optional(z.string()),
+  // this should also be an enum
+  strength: z.enum(readonlyCharacterStrengths),
+  // another enum
+  weakness: z.enum(readonlyCharacterWeaknesses)
+})
