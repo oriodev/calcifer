@@ -13,12 +13,14 @@ you can check it out so far [here](https://www.calcifergame.com/). _note that da
 
 ![image](https://github.com/oriodev/calcifer/assets/93719767/8ca301c3-b34c-4ad9-8006-123fdacb2104)
 
+**configuration**: light/dark theme toggle.
+
 ### features in development.
 
 **user landing page**:
-- [ ] create the basic page.
-- [ ] reset the automatic redirect page.
-- [ ] display basic user information.
+- [x] create the home page.
+- [x] reset the automatic redirect page.
+- [x] display basic user information.
 - [ ] revist once onboarding is complete.
 
 **onboarding**:
