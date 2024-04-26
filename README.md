@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image](https://github.com/oriodev/calcifer/assets/93719767/60f3baf4-8625-4048-9793-bcfbd5b93927)
 
-## Getting Started
+# calcifer!
+a small browser game set in the magical town of calcifer. users can play games, spend their coins in shops, and interact with other users. it is built with next.js, next auth, prisma, neon, resend, tailwind, and shadcn. it is deployed with vercel. _currently in development._
 
-First, run the development server:
+you can check it out so far [here](https://www.calcifergame.com/). _note that data may be wiped at any point during development!_
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# features.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### completed features.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**authentication**: register, sign in with credentials or oauth, two factor authentication, password reset, email verification, and account settings. this is implemented with next auth and [resend](https://resend.com/overview) (for emails), and with great thanks to [this tutorial by code with antonio](https://www.youtube.com/watch?v=1MTyCvS05V4).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![image](https://github.com/oriodev/calcifer/assets/93719767/8ca301c3-b34c-4ad9-8006-123fdacb2104)
 
-## Learn More
+### features in development.
 
-To learn more about Next.js, take a look at the following resources:
+**user landing page**:
+- [ ] create the basic page.
+- [ ] reset the automatic redirect page.
+- [ ] display basic user information.
+- [ ] revist once onboarding is complete.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**onboarding**:
+- [ ] a basic form where the player is asked which character they want to play as, to give some character background, and choose a strength and a weakness.
+- [ ] extend the db to store all this information.
+- [ ] make sure no user can get past the onboarding page without completing it.
+- [ ] make sure the user is redirected to onboarding after registering.
