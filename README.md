@@ -18,9 +18,9 @@ you can check it out so far [here](https://www.calcifergame.com/). _note that da
 ### features in development.
 
 **user landing page**:
-- [ ] create the basic page.
-- [ ] reset the automatic redirect page.
-- [ ] display basic user information.
+- [x] create the home page.
+- [x] reset the automatic redirect page.
+- [x] display basic user information.
 - [ ] revist once onboarding is complete.
 
 **onboarding**:
