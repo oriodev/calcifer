@@ -12,7 +12,6 @@ const HomePage = async () => {
 
   return (
     <div className="">
-      <Navbar />
       <Card className="mt-5 w-1/3 text-xl">
         <CardHeader>
           <CardTitle className="flex gap-x-3">
