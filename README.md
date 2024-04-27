@@ -15,16 +15,14 @@ you can check it out so far [here](https://www.calcifergame.com/). _note that da
 
 **configuration**: light/dark theme toggle.
 
+**onboarding:** an onboarding page with some introductory worldbuilding, an image carousel displaying character selection options, a big text input field for character background, and some drop down fields for strengths and weaknesses. all the information gets stored in the database. the user is then redirected to the homepage. the user cannot re-access the onboarding page once they have completed onboarding. a tavern room number is also generated in the background.
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/adcd7ecf-6eda-4b60-ae10-c14040b6c4eb)
+
+**user home page:** currently a very rudimentary user home page. it displays basic user information given during onboarding and displays an image of their character. the user is automatically redirected to the home page after login/after completing onboarding.
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/bde9298b-4966-4ad4-aaf8-2da48caa9e21)
+
+
 ### features in development.
 
-**user landing page**:
-- [x] create the home page.
-- [x] reset the automatic redirect page.
-- [x] display basic user information.
-- [ ] revist once onboarding is complete.
-
-**onboarding**:
-- [ ] a basic form where the player is asked which character they want to play as, to give some character background, and choose a strength and a weakness.
-- [ ] extend the db to store all this information.
-- [ ] make sure no user can get past the onboarding page without completing it.
-- [ ] make sure the user is redirected to onboarding after registering.
