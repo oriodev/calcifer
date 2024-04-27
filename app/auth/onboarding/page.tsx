@@ -1,6 +1,5 @@
 import OnboardingForm from '@/components/onboarding/onboarding-form';
 import OnboardingInfo from '@/components/onboarding/onboarding-info';
-import { currentUser } from '@/lib/auth';
 import React from 'react';
 
 const OnboardingPage = async () => {

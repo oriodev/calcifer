@@ -18,6 +18,7 @@ declare module "next-auth" {
       background: string;
       strength: string;
       weakness: string;
+      onboardingComplete: boolean;
     } & DefaultSession["user"]
   }
 }
@@ -91,6 +92,7 @@ export const {
           session.user.background = token.background as string;
           session.user.strength = token.strength as string;
           session.user.weakness = token.weakness as string;
+          session.user.onboardingComplete = token.onboardingComplete as boolean;
         }
 
         if (session.user && token.email) {
@@ -123,6 +125,7 @@ export const {
         token.background = existingUser.background
         token.strength = existingUser.strength
         token.weakness = existingUser.weakness
+        token.onboardingComplete = existingUser.onboardingComplete
 
         return token
       }

@@ -1,6 +1,7 @@
 import { GiCampfire, GiVitruvianMan } from 'react-icons/gi';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { currentUser } from '@/lib/auth';
+import { LogoutButton } from '../auth/logout-button';
 
 const OnboardingInfo = async () => {
   // get all the current user information.
@@ -55,6 +56,9 @@ const OnboardingInfo = async () => {
               slaps a wad of paperwork on the table and shoves a quill into your
               hand. you glance down at it wearily and get to work.
             </p>
+          </div>
+          <div className="mt-5">
+            <LogoutButton>come back later.</LogoutButton>
           </div>
         </CardContent>
       </Card>

@@ -111,11 +111,21 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   }
 
   try {
-    await signIn('credentials', {
-      email,
-      password,
-      redirectTo: DEFAULT_LOGIN_REDIRECT
-    })
+
+    if (existingUser.onboardingComplete) {
+      await signIn('credentials', {
+        email,
+        password,
+        redirectTo: DEFAULT_LOGIN_REDIRECT
+      })
+    } else {
+      await signIn('credentials', {
+        email,
+        password,
+        redirectTo: '/auth/onboarding'
+      })
+    }
+
 
 
     return { success: 'logged in' }

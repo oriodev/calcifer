@@ -62,16 +62,18 @@ const OnboardingForm = () => {
     // gives u 'is pending' while it's loading so u can't edit fields during that time
     startTransition(() => {
       onboarding(values).then((data) => {
-        setError(data.error);
-        setSuccess(data.success);
+        console.log(data);
+        if (data.error) {
+          setError(data.error);
+        }
 
         if (data.success) {
+          setSuccess(data.success);
+          console.log(user?.onboardingComplete);
+
           router.push('/home');
         }
       });
-
-      setError('');
-      setSuccess('');
     });
   };
 
