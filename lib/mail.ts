@@ -6,7 +6,7 @@ const domain = process.env.NEXT_PUBLIC_APP_URL
 export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
 
   await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: 'mail@calcifergame.com',
     to: email,
     subject: '2fa code',
     html: `
@@ -20,7 +20,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 
   await resend.emails.send({
     // u can change this once u add a domain to resend so it comes from a sexier email address.
-    from: 'onboarding@resend.dev',
+    from: 'mail@calcifergame.com',
     to: email,
     subject: 'confirm ur email',
     // u have to design the whole email with html
@@ -84,7 +84,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
 
   await resend.emails.send({
     // u can change this once u add a domain to resend so it comes from a sexier email address.
-    from: 'onboarding@resend.dev',
+    from: 'mail@calcifergame.com',
     to: email,
     subject: 'reset ur password',
     // u have to design the whole email with html
