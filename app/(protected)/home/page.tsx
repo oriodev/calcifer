@@ -1,6 +1,7 @@
 import Navbar from '@/components/home/Navbar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { currentUser } from '@/lib/auth';
+import Image from 'next/image';
 import React from 'react';
 
 import { GiBookshelf } from 'react-icons/gi';
@@ -19,7 +20,36 @@ const HomePage = async () => {
             {userName}
           </CardTitle>
         </CardHeader>
-        <CardContent>here is a lil info abt u!</CardContent>
+        <CardContent>
+          <div className="flex gap-x-5">
+            <div>
+              <Image
+                src={`/playable-characters/chara${user?.character}.png`}
+                alt=""
+                width={200}
+                height={100}
+              />
+            </div>
+            <div>
+              <p>
+                <strong>tavern room: </strong> {user?.tavernNumber}
+              </p>
+              <p>
+                <strong>strength: </strong> {user?.strength}
+              </p>
+              <p>
+                <strong>weakness: </strong> {user?.weakness}
+              </p>
+
+              <br />
+
+              <p>
+                <strong>background</strong>
+              </p>
+              <p>{user?.background}</p>
+            </div>
+          </div>
+        </CardContent>
       </Card>
     </div>
   );
