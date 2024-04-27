@@ -21,7 +21,7 @@ export const onboardingRoutes = [
 ]
 
 export const onboardingAllowedRoutes = [
-  '/home'
+  '/town/home'
 ]
 
 
@@ -29,4 +29,4 @@ export const onboardingAllowedRoutes = [
 export const apiAuthPrefix = "/api/auth"
 
 // default redirect after logging in
-export const DEFAULT_LOGIN_REDIRECT = '/home'
+export const DEFAULT_LOGIN_REDIRECT = '/town/home'

@@ -68,7 +68,7 @@ const OnboardingForm = () => {
         if (data.success) {
           setSuccess(data.success);
 
-          router.push('/home');
+          router.push('/town/home');
         }
       });
     });
