@@ -36,7 +36,6 @@ export const RegisterForm = () => {
     defaultValues: {
       email: '',
       password: '',
-      name: '',
     },
   });
 
@@ -66,25 +65,6 @@ export const RegisterForm = () => {
         {/* this handles on submit */}
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>name</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="doesn't have to be unique"
-                      type="input"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
             <FormField
               control={form.control}
               name="email"

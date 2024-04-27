@@ -39,12 +39,10 @@ import { GiVitruvianMan } from 'react-icons/gi';
 import { characterStrengths, characterWeaknesses } from '@/gameinfo/charainfo';
 import { onboarding } from '@/actions/onboarding';
 import { useRouter } from 'next/navigation';
+import { Input } from '../ui/input';
 
 const OnboardingForm = () => {
   const router = useRouter();
-
-  const user = useCurrentUser();
-  const characterName = user?.name || 'ghostie';
 
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
@@ -69,7 +67,6 @@ const OnboardingForm = () => {
 
         if (data.success) {
           setSuccess(data.success);
-          console.log(user?.onboardingComplete);
 
           router.push('/home');
         }
@@ -152,6 +149,20 @@ const OnboardingForm = () => {
                   )}
                 />
 
+                {/* name. */}
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>what name do you go by?</FormLabel>
+                      <FormControl>
+                        <Input {...field} disabled={isPending} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+
                 {/* background. */}
                 <FormField
                   control={form.control}
@@ -161,86 +172,86 @@ const OnboardingForm = () => {
                       <FormLabel>background</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder={`what brings ${characterName} to calcifer?`}
+                          placeholder={`what brings you to calcifer?`}
                           {...field}
                         />
                       </FormControl>
                     </FormItem>
                   )}
                 />
-              </div>
 
-              {/* greatest strengths */}
-              <FormField
-                control={form.control}
-                name="strength"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>what is ur greatest strength?</FormLabel>
-                    <Select
-                      disabled={isPending}
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="pick one." />
-                        </SelectTrigger>
-                      </FormControl>
+                {/* greatest strengths */}
+                <FormField
+                  control={form.control}
+                  name="strength"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>what is ur greatest strength?</FormLabel>
+                      <Select
+                        disabled={isPending}
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="pick one." />
+                          </SelectTrigger>
+                        </FormControl>
 
-                      <SelectContent>
-                        {Array.from({ length: characterStrengths.length }).map(
-                          (_, index) => (
+                        <SelectContent>
+                          {Array.from({
+                            length: characterStrengths.length,
+                          }).map((_, index) => (
                             <SelectItem
                               key={index}
                               value={characterStrengths[index]}
                             >
                               {characterStrengths[index]}
                             </SelectItem>
-                          )
-                        )}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              {/* greatest weaknesses */}
-              <FormField
-                control={form.control}
-                name="weakness"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>what is ur greatest weakness?</FormLabel>
-                    <Select
-                      disabled={isPending}
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="pick one." />
-                        </SelectTrigger>
-                      </FormControl>
+                {/* greatest weaknesses */}
+                <FormField
+                  control={form.control}
+                  name="weakness"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>what is ur greatest weakness?</FormLabel>
+                      <Select
+                        disabled={isPending}
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="pick one." />
+                          </SelectTrigger>
+                        </FormControl>
 
-                      <SelectContent>
-                        {Array.from({ length: characterWeaknesses.length }).map(
-                          (_, index) => (
+                        <SelectContent>
+                          {Array.from({
+                            length: characterWeaknesses.length,
+                          }).map((_, index) => (
                             <SelectItem
                               key={index}
                               value={characterWeaknesses[index]}
                             >
                               {characterWeaknesses[index]}
                             </SelectItem>
-                          )
-                        )}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
 
               {/* display response mssgs after register attempt */}
               <FormError message={error} />

@@ -36,9 +36,6 @@ export const RegisterSchema = z.object({
   }),
   password: z.string().min(6, {
     message: 'min is 6 charas go go go'
-  }),
-  name: z.string().min(1, {
-    message: 'u need a name dumbass'
   })
 })
 
@@ -59,5 +56,7 @@ export const OnboardingSchema = z.object({
   // this should also be an enum
   strength: z.enum(readonlyCharacterStrengths),
   // another enum
-  weakness: z.enum(readonlyCharacterWeaknesses)
+  weakness: z.enum(readonlyCharacterWeaknesses),
+  // input
+  name: z.string()
 })

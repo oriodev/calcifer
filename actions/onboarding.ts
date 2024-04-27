@@ -14,7 +14,7 @@ export const onboarding = async (values: z.infer<typeof OnboardingSchema>) => {
     return { error: 'invalid fields' }
   }
 
-  const { character, background, strength, weakness } = validatedFields.data;
+  const { character, name, background, strength, weakness } = validatedFields.data;
 
   const existingUser = await currentUser();
 
@@ -22,12 +22,15 @@ export const onboarding = async (values: z.infer<typeof OnboardingSchema>) => {
     return { error: 'you are not logged in' }
   }
 
+  console.log('name: ', name)
+
   await db.user.update({
     where: {
       id: existingUser.id
     },
     data: {
       character: parseInt(character),
+      name: name,
       background: background || 'u r a mystery',
       strength,
       weakness,

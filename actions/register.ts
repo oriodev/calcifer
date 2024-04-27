@@ -19,7 +19,7 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   }
 
   // this is how we grab the field values from the form post validation.
-  const { email, password, name } = validatedFields.data;
+  const { email, password } = validatedFields.data;
 
   // now to hash the password.
   const hashedPassword = await bcrypt.hash(password, 11)
@@ -36,7 +36,6 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   // if the email is free then it's user creation time :)
   await db.user.create({
     data: {
-      name,
       email,
       password: hashedPassword
     }
