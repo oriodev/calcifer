@@ -35,9 +35,7 @@ import Link from 'next/link';
 
 const SettingsPage = () => {
   const user = useCurrentUser();
-  console.log('user: ', user);
   const userIsOAuth = user?.isOAuth;
-  console.log('userIsOAuth: ', userIsOAuth);
 
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();

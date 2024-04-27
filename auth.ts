@@ -13,6 +13,11 @@ declare module "next-auth" {
       role: UserRole;
       isTwoFactorEnabled: boolean;
       isOAuth: boolean;
+      tavernNumber: number;
+      character: number;
+      background: string;
+      strength: string;
+      weakness: string;
     } & DefaultSession["user"]
   }
 }
@@ -81,6 +86,11 @@ export const {
 
         if (session.user) {
           session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean
+          session.user.tavernNumber = token.tavernNumber as number;
+          session.user.character = token.character as number;
+          session.user.background = token.background as string;
+          session.user.strength = token.strength as string;
+          session.user.weakness = token.weakness as string;
         }
 
         if (session.user && token.email) {
@@ -108,6 +118,11 @@ export const {
         token.email = existingUser.email
         token.role = existingUser.role
         token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled
+        token.tavernNumber = existingUser.tavernNumber
+        token.character = existingUser.character
+        token.background = existingUser.background
+        token.strength = existingUser.strength
+        token.weakness = existingUser.weakness
 
         return token
       }

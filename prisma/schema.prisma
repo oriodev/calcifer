@@ -34,6 +34,15 @@ model User {
   accounts      Account[]
   isTwoFactorEnabled Boolean @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
+
+  // character stuff
+  tavernNumber  Int @default(autoincrement()) @unique
+  character     Int?
+  background    String?
+  strength      String?
+  weakness      String?
+
+  onboardingComplete  Boolean @default(false)
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

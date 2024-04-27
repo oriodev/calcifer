@@ -53,9 +53,9 @@ export const SettingsSchema = z.object({
 
 export const OnboardingSchema = z.object({
   // this should be an enum
-  character: z.enum(['']),
+  character: z.enum(['1', '2', '3', '4', '5', '6', '7', '8']),
   // they don't have to add a background
-  background: z.optional(z.string()),
+  background: z.optional(z.string().max(10000)),
   // this should also be an enum
   strength: z.enum(readonlyCharacterStrengths),
   // another enum

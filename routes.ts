@@ -14,7 +14,7 @@ export const authRoutes = [
   '/auth/register',
   '/auth/error',
   '/auth/new-password',
-  '/auth/onboarding'
+  // '/auth/onboarding'
 ]
 
 // prefix for all the auth api routes
