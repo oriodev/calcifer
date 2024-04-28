@@ -23,6 +23,10 @@ you can check it out so far [here](https://www.calcifergame.com/). _note that da
 
 ![image](https://github.com/oriodev/calcifer/assets/93719767/bde9298b-4966-4ad4-aaf8-2da48caa9e21)
 
+**post office:** a letter sending system where a user can send a message to another user. currently, users can only send letters, but cannot recieve them.
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/2872a0f2-34c2-41f2-8697-7e82e3e65c0f)
+
 
 ### features in development.
-
+- letter boxes, where users can recieve their letters, mark them as read/unread, and delete them.
