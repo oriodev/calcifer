@@ -2,7 +2,6 @@
 
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
-import { useCurrentUser } from '@/hooks/use-current-user';
 
 import { OnboardingSchema } from '@/schemas';
 

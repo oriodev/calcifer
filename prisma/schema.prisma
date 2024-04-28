@@ -104,3 +104,11 @@ model TwoFactorConfirmation {
 
   @@unique([userId])
 }
+
+model Letters {
+  id String @id @default(cuid())
+
+  senderId String
+  recieverId String
+  message String
+}
