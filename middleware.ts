@@ -5,7 +5,6 @@ import {
   DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,
   authRoutes,
-  onboardingAllowedRoutes,
   onboardingRoutes,
   publicRoutes
 } from '@/routes'
@@ -28,7 +27,6 @@ export default auth(async (req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname)
   const isAuthRoute = authRoutes.includes(nextUrl.pathname)
   const isOnboardingRoute = onboardingRoutes.includes(nextUrl.pathname)
-  const isHome = onboardingAllowedRoutes.includes(nextUrl.pathname)
 
   // block api routes
   if (isApiAuthRoute) {
@@ -55,9 +53,6 @@ export default auth(async (req) => {
     return Response.redirect(new URL('/auth/login', nextUrl))
   }
 
-  if (isLoggedIn && !onboardingComplete && !isPublicRoute && !isOnboardingRoute && !isHome) {
-    return Response.redirect(new URL('/auth/onboarding', nextUrl))
-  }
 
   return null;
 

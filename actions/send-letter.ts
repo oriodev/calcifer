@@ -5,8 +5,9 @@ import { currentUser } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { SendLetterSchema } from '@/schemas/town';
 import * as z from 'zod'
+import { spendCoins } from './spend-coins';
 
-export const sendLetter = async (values: z.infer<typeof SendLetterSchema>) => {
+export const sendLetter = async (values: z.infer<typeof SendLetterSchema>, cost: number) => {
 
 
   const validatedFields = SendLetterSchema.safeParse(values);
@@ -49,9 +50,11 @@ export const sendLetter = async (values: z.infer<typeof SendLetterSchema>) => {
     return { error: 'no sender name' }
   }
 
+  // spend the coins
+
+  await spendCoins(cost)
 
   const userName = existingUser.name
-
 
   await db.letters.create({
     data: {

@@ -27,8 +27,14 @@ import {
 } from '../ui/select';
 import { Textarea } from '../ui/textarea';
 import { sendLetter } from '@/actions/send-letter';
+import { SelectItemIndicator, SelectItemText } from '@radix-ui/react-select';
 
-const SendMessageForm = (users: any) => {
+interface SendMessageFormProps {
+  users: any;
+  coins: number;
+}
+
+const SendMessageForm = ({ users, coins }: SendMessageFormProps) => {
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
 
@@ -47,23 +53,29 @@ const SendMessageForm = (users: any) => {
   // users
   // -----
 
-  const allUsers = users.users;
+  const allUsers = users;
+
+  const cost = 1;
 
   // handles submit obvs
   const onSubmit = (values: z.infer<typeof SendLetterSchema>) => {
     // gives u 'is pending' while it's loading so u can't edit fields during that time
     startTransition(() => {
-      sendLetter(values).then((data) => {
-        if (data.error) {
-          setError(data.error);
-        }
+      if (coins - cost < 0) {
+        setError('ur too poor sorry :(');
+      } else {
+        sendLetter(values, cost).then((data) => {
+          if (data.error) {
+            setError(data.error);
+          }
 
-        if (data.success) {
-          setSuccess(data.success);
-          // form.reset();
-          window.location.reload();
-        }
-      });
+          if (data.success) {
+            setSuccess(data.success);
+            // form.reset();
+            window.location.reload();
+          }
+        });
+      }
     });
   };
 
@@ -79,9 +91,9 @@ const SendMessageForm = (users: any) => {
             <p className="text-3xl font-semibold">send a letter</p>
           </div>
           <p className="text-muted-foreground text-center">
-            stamps currently free thanks to the great stamp discovery of 1312.
+            stamps cost 1 coin.
             <br />
-            we still havent ran out.
+            you have {coins} coins.
           </p>
         </CardHeader>
         <CardContent>
@@ -118,7 +130,7 @@ const SendMessageForm = (users: any) => {
                           length: allUsers.length,
                         }).map((_, index) => (
                           <SelectItem key={index} value={allUsers[index].id}>
-                            <div>
+                            <div className="p-0 m-0 text-left">
                               <div>{`${allUsers[index].name}`}</div>
                               <div>{`tavern room ${allUsers[index].tavernNumber}, calcifer`}</div>
                             </div>

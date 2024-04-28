@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GiBookshelf } from 'react-icons/gi';
+import { GiBookshelf, GiCoins, GiCoinsPile } from 'react-icons/gi';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { currentUser } from '@/lib/auth';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ const UserCard = async () => {
   const userName = user?.name || 'ghostie';
 
   return (
-    <Card className="mt-5 w-1/3 text-xl">
+    <Card className="w-1/3 mt-5 text-xl">
       <CardHeader>
         <CardTitle className="flex gap-x-3">
           <GiBookshelf />
@@ -36,6 +36,13 @@ const UserCard = async () => {
             </p>
             <p>
               <strong>weakness: </strong> {user?.weakness}
+            </p>
+
+            <br />
+
+            <p className="flex gap-x-3 items-center">
+              <GiCoins />
+              <strong>coins: </strong> {user?.coins}
             </p>
 
             <br />

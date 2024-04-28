@@ -20,11 +20,6 @@ export const onboardingRoutes = [
   '/auth/onboarding'
 ]
 
-export const onboardingAllowedRoutes = [
-  '/town/home',
-  '/town/post-office'
-]
-
 
 // prefix for all the auth api routes
 export const apiAuthPrefix = "/api/auth"
