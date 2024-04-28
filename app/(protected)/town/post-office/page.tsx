@@ -1,7 +1,7 @@
 import PostOfficeInfo from '@/components/mail/post-office-info';
 import SendMessageForm from '@/components/mail/send-message-form';
 import SplitPage from '@/components/split-page';
-import { getAllUsersNamesAndIds } from '@/data/users';
+import { getAllUsersNamesIdAddress } from '@/data/users';
 import React from 'react';
 
 const PostOffice = async () => {
@@ -9,7 +9,7 @@ const PostOffice = async () => {
   // get all the uers
   //
 
-  const users = await getAllUsersNamesAndIds();
+  const users = await getAllUsersNamesIdAddress();
 
   return (
     <SplitPage

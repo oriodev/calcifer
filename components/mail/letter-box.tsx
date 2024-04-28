@@ -17,6 +17,17 @@ const LetterBox = async () => {
 
   const letters = await getUsersLetters(userId || '0');
 
+  const sortedLetters = letters?.sort((a, b) => {
+    // Convert date strings to Date objects
+    const dateA = new Date(a.sentDate);
+    const dateB = new Date(b.sentDate);
+
+    // Compare dates
+    if (dateA > dateB) return -1; // If dateA is newer, put it before dateB
+    if (dateA < dateB) return 1; // If dateB is newer, put it before dateA
+    return 0; // If dates are equal, maintain current order
+  });
+
   const unreadLettersCount = letters?.filter((letter) => !letter.read).length;
 
   return (

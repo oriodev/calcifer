@@ -15,7 +15,7 @@ const LetterBoxCard = ({ letter, options }: any) => {
       <DialogTrigger className="text-left">
         <div
           className={`p-4 border border-gray-200 flex justify-between hover:bg-blue-900 hover:cursor-pointer ${
-            letter.read ? 'bg-gray-900' : 'bg-red-900'
+            (letter.read && 'bg-gray-500') || 'bg-red-600'
           }`}
         >
           <div>

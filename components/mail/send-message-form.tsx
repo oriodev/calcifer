@@ -60,7 +60,8 @@ const SendMessageForm = (users: any) => {
 
         if (data.success) {
           setSuccess(data.success);
-          form.reset();
+          // form.reset();
+          window.location.reload();
         }
       });
     });
@@ -100,7 +101,7 @@ const SendMessageForm = (users: any) => {
                 name="user"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>dear...</FormLabel>
+                    <FormLabel>write the address</FormLabel>
                     <Select
                       disabled={isPending}
                       onValueChange={field.onChange}
@@ -117,7 +118,10 @@ const SendMessageForm = (users: any) => {
                           length: allUsers.length,
                         }).map((_, index) => (
                           <SelectItem key={index} value={allUsers[index].id}>
-                            {allUsers[index].name}
+                            <div>
+                              <div>{`${allUsers[index].name}`}</div>
+                              <div>{`tavern room ${allUsers[index].tavernNumber}, calcifer`}</div>
+                            </div>
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -127,7 +131,7 @@ const SendMessageForm = (users: any) => {
                 )}
               />
 
-              {/* background. */}
+              {/* message. */}
               <FormField
                 control={form.control}
                 name="message"
