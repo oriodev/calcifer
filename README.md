@@ -19,14 +19,22 @@ you can check it out so far [here](https://www.calcifergame.com/). _note that da
 
 ![image](https://github.com/oriodev/calcifer/assets/93719767/adcd7ecf-6eda-4b60-ae10-c14040b6c4eb)
 
-**user home page:** currently a very rudimentary user home page. it displays basic user information given during onboarding and displays an image of their character. the user is automatically redirected to the home page after login/after completing onboarding.
+**user home page:** currently a very rudimentary user home page. it displays basic user information given during onboarding and displays an image of their character. it also houses the user's letterbox, where they can see mail they have recieved from other users. the user is automatically redirected to the home page after login/after completing onboarding.
 
-![image](https://github.com/oriodev/calcifer/assets/93719767/bde9298b-4966-4ad4-aaf8-2da48caa9e21)
+![image](https://github.com/oriodev/calcifer/assets/93719767/51f66cdc-2dd9-4b35-b851-e2e4b38dfd96)
 
-**post office:** a letter sending system where a user can send a message to another user. currently, users can only send letters, but cannot recieve them.
 
-![image](https://github.com/oriodev/calcifer/assets/93719767/2872a0f2-34c2-41f2-8697-7e82e3e65c0f)
+**post office/letter box:** a letter sending system where a user can send a message to another user. the user can then check their letter box and read their letters. they can do this by clicking on the letter, and it will then show in a pop up dialogue box. unread letters are marked in a different colour to read letters. there is an 'unread letter' count at the top of the inbox. when they open a letter, the user can choose to mark the letter as read/unread, delete it, or reply to it (which routes them back to the post office). long letters are scrollable.
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/5d88a454-169a-4f6d-8808-d53a54bc1ea8)
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/510c36a3-c37b-4351-ac36-e6305c8ed24f)
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/531680bd-fcc5-4e66-97d8-25c22dc0b11c)
+
+**coins:** currently a simple system. the user has a 'coins' field that stores how many coins they have. users get 5 by default. sending a letter costs 1 coin. when you send a letter, it gets deducted from your account. if you do not have the coin to spend, you cannot send the letter.
+
+![image](https://github.com/oriodev/calcifer/assets/93719767/a5822cb2-65a4-4ce8-aeae-13fe45b819d2)
 
 
 ### features in development.
-- letter boxes, where users can recieve their letters, mark them as read/unread, and delete them.
