@@ -1,5 +1,5 @@
-import PostOfficeInfo from '@/components/post-office/post-office-info';
-import SendMessageForm from '@/components/post-office/send-message-form';
+import PostOfficeInfo from '@/components/mail/post-office-info';
+import SendMessageForm from '@/components/mail/send-message-form';
 import SplitPage from '@/components/split-page';
 import { getAllUsersNamesAndIds } from '@/data/users';
 import React from 'react';

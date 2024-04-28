@@ -109,6 +109,10 @@ model Letters {
   id String @id @default(cuid())
 
   senderId String
+  senderName String
   recieverId String
+  recieverName String
   message String
+  read    Boolean @default(false)
+  sentDate DateTime @default(now())
 }

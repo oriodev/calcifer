@@ -17,11 +17,19 @@ export const sendLetter = async (values: z.infer<typeof SendLetterSchema>) => {
 
   const { user, message } = validatedFields.data;
 
+  // this gets the user it is being sent to
   const existingUser = await getUserById(user)
 
   if (!existingUser) {
-    return { error: 'that (user does not exist' }
+    return { error: 'that user does not exist' }
   }
+
+  const recieverName = existingUser.name
+
+  if (!recieverName) {
+    return { error: 'that user does not exist' }
+  }
+
 
   const sender = await currentUser()
 
@@ -35,13 +43,22 @@ export const sendLetter = async (values: z.infer<typeof SendLetterSchema>) => {
     return { error: 'no sender id' }
   }
 
+  const senderName = sender.name
+
+  if (!senderName) {
+    return { error: 'no sender name' }
+  }
+
+
   const userName = existingUser.name
 
 
   await db.letters.create({
     data: {
       senderId,
+      senderName,
       recieverId: user,
+      recieverName,
       message,
     }
   })
