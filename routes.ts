@@ -21,7 +21,8 @@ export const onboardingRoutes = [
 ]
 
 export const onboardingAllowedRoutes = [
-  '/town/home'
+  '/town/home',
+  '/town/post-office'
 ]
 
 
