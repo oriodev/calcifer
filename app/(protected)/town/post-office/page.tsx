@@ -12,7 +12,7 @@ const PostOffice = async () => {
 
   const users = await getAllUsersNamesIdAddress();
   const user = await currentUser();
-  const coins = user?.coins;
+  const coins = user?.coins || 0;
 
   return (
     <SplitPage
