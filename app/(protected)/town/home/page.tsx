@@ -1,3 +1,4 @@
+import DisplayCoins from '@/components/general/display-coins';
 import DoOnboarding from '@/components/home/do-onboarding';
 import UserCard from '@/components/home/user-card';
 import LetterBox from '@/components/mail/letter-box';

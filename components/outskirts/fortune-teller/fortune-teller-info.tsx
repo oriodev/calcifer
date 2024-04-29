@@ -3,6 +3,8 @@
 import { spendCoins } from '@/actions/spend-coins';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
+import BackButton from '@/components/general/back-button';
+import DisplayCoins from '@/components/general/display-coins';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -35,18 +37,16 @@ const FortuneTellerInfo = ({ updatePaid, paid }: any) => {
   return (
     <div className="w-full h-full bg-slate-950 flex justify-center items-center">
       <Card className="w-1/2 border-dashed border-2">
-        <CardHeader className="flex justify-center">
+        <CardHeader className="flex flex-row justify-between items-center">
+          <div>
+            <DisplayCoins iconSize={30} textSize="text-lg" />
+          </div>
           <div className="text-center text-4xl font-semibold">
             lilith&apos;s tent
           </div>
-          {/* <CardDescription className="flex justify-center gap-3">
-            <div>
-              <GiHangingSign size={30} />
-              <p className="text-lg">
-                fortune telling: 5 coins - no refunds!!!
-              </p>
-            </div>
-          </CardDescription> */}
+          <div>
+            <BackButton iconSize={25} />
+          </div>
         </CardHeader>
 
         <CardContent className="flex flex-col text-center justify-center gap-5 mt-5">
