@@ -1,2 +1,2 @@
-export const characterStrengths = ['sweet talker']
-export const characterWeaknesses = ['time blindness', 'clumsy', 'scared of the dark']
+export const characterStrengths = ['sweet talker', 'whatever the opposite of a lightweight is', 'good at mental maths']
+export const characterWeaknesses = ['time blindness', 'clumsy', 'scared of the dark', 'cannot swim', 'gambler']

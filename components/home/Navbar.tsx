@@ -7,6 +7,7 @@ import { ThemeToggle } from '../theme-toggle';
 import {
   GiCampfire,
   GiExitDoor,
+  GiForestCamp,
   GiLoveLetter,
   GiTavernSign,
 } from 'react-icons/gi';
@@ -44,6 +45,16 @@ const Navbar = () => {
       >
         <GiLoveLetter size={32} />
         Post Office
+      </Link>
+
+      <Link
+        href="/outskirts"
+        className={`link ${
+          pathname === '/outskirts' ? 'font-bold' : ''
+        }  flex gap-x-3 items-center`}
+      >
+        <GiForestCamp size={32} />
+        Outskirts
       </Link>
 
       <ThemeToggle />
